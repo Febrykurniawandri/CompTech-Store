@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CompTech Store - Toko Aksesoris dan Sparepart Komputer</title>
+    <meta
+      name="description"
+      content="Toko e-commerce sparepart dan aksesoris komputer bergaransi resmi: VGA, Processor, Motherboard, RAM, SSD, dan catu daya dengan harga terbaik."
+    />
+    <meta
+      property="og:title"
+      content="CompTech Store - Toko Aksesoris dan Sparepart Komputer"
+    />
+    <meta
+      property="og:description"
+      content="Pusat sparepart dan komponen PC original bergaransi resmi dengan harga kompetitif dan pengiriman aman ke seluruh Indonesia."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pure Native Stylesheet -->
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Skip to main content for keyboard accessibility -->
+    <a href="#mainCatalog" class="skip-link">Loncat ke Katalog Produk</a>
+
+    <!-- 1. Header (Top Bar Contract: 3 Zones) -->
+    <header class="site-header">
+      <div class="container">
+        <div class="top-bar">
+          <!-- Zone 1: Single Brand Element -->
+          <a href="#" class="brand-zone" aria-label="CompTech Store Beranda">
+            <div class="brand-icon">CP</div>
+            <div class="brand-title">CompTech<span>Store</span></div>
+          </a>
+
+          <!-- Zone 2: Clean 4-5 Navigation Links -->
+          <nav class="site-nav" aria-label="Navigasi Utama">
+            <a href="#mainCatalog" class="nav-link active">Katalog Sparepart</a>
+            <a href="#featuresSection" class="nav-link">Layanan & Garansi</a>
+            <a href="#faqSection" class="nav-link">Panduan & FAQ</a>
+            <a href="#footerContact" class="nav-link">Kontak Toko</a>
+          </nav>
+
+          <!-- Zone 3: Primary Action & Admin Portal -->
+          <div class="header-actions">
+            <button
+              id="btnAdminNav"
+              class="btn-admin-nav"
+              title="Buka Panel Pengelola"
+            >
+              Area Admin
+            </button>
+            <button
+              id="btnCartOpen"
+              class="btn-cart"
+              aria-label="Buka Keranjang Belanja"
+            >
+              <span>Keranjang</span>
+              <span
+                id="cartBadge"
+                class="cart-count-badge"
+                style="display: none"
+                >0</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- 2. Hero Section -->
+      <section class="hero-section" aria-labelledby="heroTitle">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <span class="hero-tag">Distributor Resmi Komponen Komputer</span>
+              <h1 id="heroTitle" class="hero-title">
+                Pusat Sparepart & Komponen PC Original Bergaransi
+              </h1>
+              <p class="hero-desc">
+                Sedia kartu grafis, prosesor, motherboard, memori DDR5, dan
+                storage NVMe berkecepatan tinggi. Melayani pengiriman aman
+                bergaransi ke seluruh kota di Indonesia.
+              </p>
+              <div class="hero-stats">
+                <div class="hero-stat-item">
+                  <span class="hero-stat-value tabular-nums">100%</span>
+                  <span class="hero-stat-label">Produk Original</span>
+                </div>
+                <div class="hero-stat-item">
+                  <span class="hero-stat-value tabular-nums">3-5 Thn</span>
+                  <span class="hero-stat-label">Garansi Resmi</span>
+                </div>
+                <div class="hero-stat-item">
+                  <span class="hero-stat-value tabular-nums">24 Jam</span>
+                  <span class="hero-stat-label">Proses Pesanan Cepat</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-image-wrapper">
+              <img
+                src="/src/assets/images/hero_pc_hardware_1793276196267.jpg"
+                alt="Setup Komputer Gaming dan Workstation CompTech Store"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Catalog Section -->
+      <section
+        id="mainCatalog"
+        class="catalog-section"
+        aria-labelledby="catalogHeading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <h2 id="catalogHeading" class="section-title">
+                Katalog Sparepart & Aksesoris
+              </h2>
+              <span id="catalogCount" class="catalog-counter"
+                >Memuat data produk...</span
+              >
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div class="catalog-filter-bar">
+              <div class="search-box">
+                <span class="search-icon" aria-hidden="true">&#128269;</span>
+                <input
+                  type="text"
+                  id="searchInput"
+                  class="search-input"
+                  placeholder="Cari sparepart (contoh: RTX 4080, Ryzen, DDR5)..."
+                  aria-label="Cari produk"
+                />
+              </div>
+
+              <div class="sort-box">
+                <label for="sortSelect">Urutkan:</label>
+                <select id="sortSelect" class="sort-select">
+                  <option value="default">Rekomendasi</option>
+                  <option value="price-low">Harga: Rendah ke Tinggi</option>
+                  <option value="price-high">Harga: Tinggi ke Rendah</option>
+                  <option value="name-asc">Nama Produk (A - Z)</option>
+                  <option value="stock-high">Stok Terbanyak</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div
+              class="category-pills"
+              role="tablist"
+              aria-label="Filter Kategori"
+            >
+              <button class="category-tab active" data-cat="all" role="tab">
+                Semua Produk
+              </button>
+              <button class="category-tab" data-cat="vga" role="tab">
+                VGA / GPU
+              </button>
+              <button class="category-tab" data-cat="processor" role="tab">
+                Processor / CPU
+              </button>
+              <button class="category-tab" data-cat="motherboard" role="tab">
+                Motherboard
+              </button>
+              <button class="category-tab" data-cat="ram" role="tab">
+                RAM DDR4/DDR5
+              </button>
+              <button class="category-tab" data-cat="ssd" role="tab">
+                SSD / NVMe
+              </button>
+              <button class="category-tab" data-cat="psu" role="tab">
+                Power Supply
+              </button>
+              <button class="category-tab" data-cat="monitor" role="tab">
+                Monitor & Aksesori
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Card Grid -->
+          <div id="productGrid" class="product-grid" aria-live="polite">
+            <!-- Dynamically populated by src/app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Features & Layanan Kami -->
+      <section
+        id="featuresSection"
+        class="features-section"
+        aria-labelledby="featuresHeading"
+      >
+        <div class="container">
+          <div class="features-grid">
+            <div class="feature-item">
+              <div class="feature-icon-box" aria-hidden="true">&#9733;</div>
+              <div class="feature-info">
+                <h4>100% Produk Asli</h4>
+                <p>
+                  Semua komponen resmi langsung dari distributor pemegang merk
+                  resmi di Indonesia.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-box" aria-hidden="true">&#128737;</div>
+              <div class="feature-info">
+                <h4>Garansi Mudah & Jelas</h4>
+                <p>
+                  Dukungan klaim garansi toko 14 hari ganti baru dan garansi
+                  distributor hingga 5 tahun.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-box" aria-hidden="true">&#128230;</div>
+              <div class="feature-info">
+                <h4>Packing Aman & Asuransi</h4>
+                <p>
+                  Dilapisi bubble wrap tebal dan opsi packing kayu untuk
+                  pengiriman luar kota tanpa cemas.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-box" aria-hidden="true">&#128179;</div>
+              <div class="feature-info">
+                <h4>Pembayaran Fleksibel</h4>
+                <p>
+                  Mendukung Transfer Bank BCA & Mandiri, QRIS instan, dan COD
+                  bayar di tempat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. FAQ Section -->
+      <section id="faqSection" class="faq-section" aria-labelledby="faqHeading">
+        <div class="container">
+          <div class="faq-container">
+            <div style="text-align: center; margin-bottom: 32px">
+              <h2
+                id="faqHeading"
+                style="font-size: 26px; font-weight: 800; margin-bottom: 8px"
+              >
+                Pertanyaan Sering Diajukan (FAQ)
+              </h2>
+              <p style="font-size: 14px; color: var(--text-secondary)">
+                Informasi seputar pemesanan, pembayaran, dan klaim garansi di
+                CompTech Store.
+              </p>
+            </div>
+
+            <details class="faq-item" open>
+              <summary class="faq-summary">
+                Apakah semua produk memiliki garansi resmi Indonesia?
+              </summary>
+              <div class="faq-body">
+                Ya, seluruh sparepart komputer di CompTech Store dijamin 100%
+                baru, original, dan bergaransi resmi dari distributor Indonesia
+                (seperti ASUS Indonesia, DTG, Astrindo, NJT, Samsung Indonesia,
+                dll). Nota pembelian resmi kami sertakan pada setiap paket.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                Bagaimana cara memesan dan melakukan konfirmasi pembayaran?
+              </summary>
+              <div class="faq-body">
+                Pilih barang yang Anda inginkan ke keranjang belanja, klik
+                <strong>Checkout</strong>, lalu isi data penerima dan pilih
+                metode pembayaran. Setelah pesanan selesai, sistem akan
+                menerbitkan <strong>Kode Pesanan (Invoice)</strong> beserta
+                rincian rekening bank. Anda dapat mengonfirmasikan bukti
+                transfer langsung ke admin melalui WhatsApp dengan satu klik.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                Apakah bisa konsultasi kecocokan (kompatibilitas) sparepart
+                sebelum membeli?
+              </summary>
+              <div class="faq-body">
+                Tentu saja! Tim teknis kami siap membantu Anda memastikan
+                kompatibilitas antara prosesor, motherboard, soket, daya PSU,
+                dan ukuran casing secara gratis melalui kontak WhatsApp resmi
+                toko.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                Apakah barang bisa diambil langsung di toko fisik?
+              </summary>
+              <div class="faq-body">
+                Bisa. Pada formulir checkout, Anda dapat memilih kurir
+                <em>Ambil Sendiri di Toko</em> tanpa dikenakan ongkos kirim.
+                Toko kami buka setiap hari Senin - Sabtu pukul 09.00 - 18.00 WIB
+                di Ruko Mangga Dua Mall Blok B3 No. 12, Jakarta Pusat.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 6. Footer -->
+    <footer id="footerContact" class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="brand-zone" style="margin-bottom: 14px">
+              <div class="brand-icon">CP</div>
+              <div class="brand-title">CompTech<span>Store</span></div>
+            </div>
+            <p>
+              Toko aksesoris dan sparepart komputer terlengkap. Menghadirkan
+              komponen hardware berperforma tinggi dengan harga kompetitif dan
+              jaminan keaslian 100%.
+            </p>
+            <p style="font-size: 12px; color: var(--text-muted)">
+              Jl.Penggilingan, Cakung, Jakarta Timur, 13940
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h5>Navigasi Toko</h5>
+            <ul class="footer-links">
+              <li><a href="#mainCatalog">Katalog Sparepart</a></li>
+              <li><a href="#featuresSection">Jaminan Garansi</a></li>
+              <li><a href="#faqSection">Panduan Belanja</a></li>
+              <li><a href="#" id="btnAdminFooter">Portal Admin Toko</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Kategori Unggulan</h5>
+            <ul class="footer-links">
+              <li><a href="#mainCatalog">Kartu Grafis (VGA)</a></li>
+              <li><a href="#mainCatalog">Prosesor Desktop (CPU)</a></li>
+              <li><a href="#mainCatalog">Motherboard Gaming</a></li>
+              <li><a href="#mainCatalog">RAM DDR5 & SSD M.2</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Kontak & Bantuan</h5>
+            <p>
+              <strong>Layanan Pelanggan WhatsApp:</strong><br />+62
+              895329764534
+            </p>
+            <p><strong>Email Toko:</strong><br />cs@comptech.store</p>
+            <p style="font-size: 12px; color: var(--text-muted)">
+              Senin - Sabtu: 09.00 - 18.00 WIB
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span
+            >&copy; 2026 CompTech Store. Hak Cipta Dilindungi
+            Undang-Undang.</span
+          >
+          <span>Dibuat dengan HTML, CSS, dan JavaScript Native Murni.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= MODALS & DRAWERS ================= -->
+
+    <!-- Cart Slide Drawer -->
+    <div id="cartDrawer" class="drawer-backdrop" aria-hidden="true">
+      <div
+        class="cart-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cartDrawerTitle"
+      >
+        <div class="drawer-header">
+          <h3 id="cartDrawerTitle" class="drawer-title">
+            &#128722; Keranjang Belanja
+          </h3>
+          <button
+            id="btnCloseCartDrawer"
+            class="btn-close-drawer"
+            aria-label="Tutup Keranjang"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="cartItemsList" class="cart-items-container">
+          <!-- Populated by src/app.js -->
+        </div>
+        <div class="drawer-footer">
+          <div class="drawer-subtotal-line">
+            <span class="drawer-subtotal-label">Subtotal Belanja:</span>
+            <span id="cartSubtotalVal" class="drawer-subtotal-val tabular-nums"
+              >Rp 0</span
+            >
+          </div>
+          <button id="btnOpenCheckout" class="drawer-btn-checkout">
+            Lanjutkan ke Pembayaran
+          </button>
+          <button id="btnClearCart" class="btn-clear-cart">
+            Kosongkan Keranjang
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div
+      id="productDetailModal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="modal-window modal-detail-window">
+        <div class="modal-header">
+          <h3>Detail Spesifikasi Produk</h3>
+          <button
+            class="btn-close-modal"
+            data-close-modal="productDetailModal"
+            aria-label="Tutup"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="pdpModalContent">
+          <!-- Populated by src/app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div
+      id="checkoutModal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="modal-window modal-checkout-window">
+        <div class="modal-header">
+          <h3>Formulir Pemesanan & Pengiriman</h3>
+          <button
+            class="btn-close-modal"
+            data-close-modal="checkoutModal"
+            aria-label="Tutup"
+          >
+            &times;
+          </button>
+        </div>
+        <form id="checkoutForm">
+          <div class="checkout-grid">
+            <div class="checkout-form-col">
+              <div class="form-group">
+                <label for="checkoutName" class="form-label"
+                  >Nama Lengkap Pemesan <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="checkoutName"
+                  class="form-input"
+                  required
+                  placeholder="Contoh: Budi Santoso"
+                />
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="checkoutPhone" class="form-label"
+                    >Nomor WhatsApp / HP <span class="req">*</span></label
+                  >
+                  <input
+                    type="tel"
+                    id="checkoutPhone"
+                    class="form-input"
+                    required
+                    placeholder="Contoh: 081234567890"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="checkoutCity" class="form-label"
+                    >Kota / Kabupaten <span class="req">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="checkoutCity"
+                    class="form-input"
+                    required
+                    placeholder="Contoh: Jakarta Barat"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="checkoutAddress" class="form-label"
+                  >Alamat Lengkap Pengiriman <span class="req">*</span></label
+                >
+                <textarea
+                  id="checkoutAddress"
+                  class="form-textarea"
+                  rows="2"
+                  required
+                  placeholder="Nama jalan, nomor rumah, RT/RW, kelurahan, kecamatan, dan kode pos"
+                ></textarea>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="checkoutCourier" class="form-label"
+                    >Opsi Pengiriman <span class="req">*</span></label
+                  >
+                  <select id="checkoutCourier" class="form-select">
+                    <option value="JNE Express Reguler (Rp 35.000)">
+                      JNE Express Reguler (Rp 35.000)
+                    </option>
+                    <option value="SiCepat Best Next Day (Rp 35.000)">
+                      SiCepat Best Next Day (Rp 35.000)
+                    </option>
+                    <option value="J&T Express (Rp 35.000)">
+                      J&T Express (Rp 35.000)
+                    </option>
+                    <option value="Ambil Sendiri di Toko Mangga Dua (Rp 0)">
+                      Ambil Sendiri di Toko (Gratis Rp 0)
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="checkoutPayment" class="form-label"
+                    >Metode Pembayaran <span class="req">*</span></label
+                  >
+                  <select id="checkoutPayment" class="form-select">
+                    <option value="Transfer Bank BCA">
+                      Transfer Bank BCA (Otomatis/Manual)
+                    </option>
+                    <option value="Transfer Bank Mandiri">
+                      Transfer Bank Mandiri
+                    </option>
+                    <option value="QRIS Realtime (Semua E-Wallet)">
+                      QRIS Realtime (GoPay, OVO, Dana)
+                    </option>
+                    <option value="COD (Bayar di Tempat)">
+                      COD (Bayar Saat Barang Sampai)
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="checkoutNotes" class="form-label"
+                  >Catatan Tambahan untuk Penjual</label
+                >
+                <input
+                  type="text"
+                  id="checkoutNotes"
+                  class="form-input"
+                  placeholder="Contoh: Tambah bubble wrap tebal, kirim sebelum jam 3 sore"
+                />
+              </div>
+            </div>
+
+            <div class="checkout-summary-col">
+              <div class="checkout-summary-box">
+                <h4 style="font-size: 15px; font-weight: 700">
+                  Ringkasan Belanja
+                </h4>
+                <div id="checkoutItemsPreview" class="order-items-preview">
+                  <!-- Dynamic Item preview -->
+                </div>
+                <div class="calculation-line">
+                  <span>Subtotal Sparepart:</span>
+                  <span id="checkoutSubtotal" class="tabular-nums font-semibold"
+                    >Rp 0</span
+                  >
+                </div>
+                <div class="calculation-line">
+                  <span>Ongkos Kirim & Proteksi:</span>
+                  <span id="checkoutShipping" class="tabular-nums font-semibold"
+                    >Rp 35.000</span
+                  >
+                </div>
+                <div class="calculation-total">
+                  <span>Total Tagihan:</span>
+                  <span
+                    id="checkoutGrandTotal"
+                    class="tabular-nums"
+                    style="color: var(--accent-cyan)"
+                    >Rp 0</span
+                  >
+                </div>
+
+                <button type="submit" class="btn-submit-order">
+                  Konfirmasi & Buat Pesanan
+                </button>
+                <p
+                  style="
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    text-align: center;
+                    line-height: 1.4;
+                  "
+                >
+                  Data pesanan akan disimpan ke sistem dan kode pesanan resmi
+                  akan diterbitkan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Invoice / Nota Pembelian Modal -->
+    <div
+      id="invoiceModal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="modal-window modal-invoice-window">
+        <div class="modal-header">
+          <h3>Bukti Transaksi Pemesanan</h3>
+          <button
+            class="btn-close-modal"
+            data-close-modal="invoiceModal"
+            aria-label="Tutup"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="invoicePrintArea" class="invoice-body">
+          <!-- Populated by src/app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Portal Modal -->
+    <div
+      id="adminModal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="modal-window modal-admin-window">
+        <div class="modal-header">
+          <h3>Panel Manajemen Toko — CompTech Store</h3>
+          <button
+            class="btn-close-modal"
+            data-close-modal="adminModal"
+            aria-label="Tutup"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="adminDynamicContent" class="admin-body">
+          <!-- Populated by src/app.js (Login or Dashboard) -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Form Modal (Admin Add/Edit) -->
+    <div
+      id="productFormModal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="modal-window" style="max-width: 600px">
+        <div class="modal-header">
+          <h3 id="productFormTitle">Formulir Sparepart Komputer</h3>
+          <button
+            class="btn-close-modal"
+            data-close-modal="productFormModal"
+            aria-label="Tutup"
+          >
+            &times;
+          </button>
+        </div>
+        <form id="productForm" style="padding: 24px">
+          <input type="hidden" id="formProductId" />
+          <div class="form-group">
+            <label for="formProdName" class="form-label"
+              >Nama Produk <span class="req">*</span></label
+            >
+            <input
+              type="text"
+              id="formProdName"
+              class="form-input"
+              required
+              placeholder="Contoh: MSI GeForce RTX 4070 Ventus 2X"
+            />
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="formProdBrand" class="form-label"
+                >Brand / Merk <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="formProdBrand"
+                class="form-input"
+                required
+                placeholder="Contoh: MSI, Intel, AMD"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formProdCategory" class="form-label"
+                >Kategori <span class="req">*</span></label
+              >
+              <select id="formProdCategory" class="form-select">
+                <option value="vga">VGA / Kartu Grafis</option>
+                <option value="processor">Processor / CPU</option>
+                <option value="motherboard">Motherboard</option>
+                <option value="ram">RAM / Memory</option>
+                <option value="ssd">SSD / Storage</option>
+                <option value="psu">Power Supply</option>
+                <option value="monitor">Monitor & Aksesori</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="formProdPrice" class="form-label"
+                >Harga Satuan (Rp) <span class="req">*</span></label
+              >
+              <input
+                type="number"
+                id="formProdPrice"
+                class="form-input"
+                required
+                min="0"
+                placeholder="Contoh: 8500000"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formProdStock" class="form-label"
+                >Stok Fisik <span class="req">*</span></label
+              >
+              <input
+                type="number"
+                id="formProdStock"
+                class="form-input"
+                required
+                min="0"
+                placeholder="Contoh: 10"
+              />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="formProdBadge" class="form-label"
+                >Label Sorotan (Badge)</label
+              >
+              <input
+                type="text"
+                id="formProdBadge"
+                class="form-input"
+                placeholder="Contoh: Best Seller / New Arrival"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formProdImage" class="form-label"
+                >URL / Path Foto Produk</label
+              >
+              <input
+                type="text"
+                id="formProdImage"
+                class="form-input"
+                placeholder="/src/assets/images/..."
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="formProdDesc" class="form-label"
+              >Deskripsi Lengkap</label
+            >
+            <textarea
+              id="formProdDesc"
+              class="form-textarea"
+              rows="3"
+              placeholder="Jelaskan spesifikasi, fitur unggulan, dan kelengkapan produk..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="drawer-btn-checkout"
+            style="margin-top: 10px"
+          >
+            Simpan Data Sparepart
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <!-- Pure Native JavaScript Entry Point -->
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

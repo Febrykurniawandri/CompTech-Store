@@ -1,0 +1,6 @@
+{
+  "name": "CompTech Store - Toko Sparepart Komputer",
+  "description": "E-Commerce penjualan sparepart dan aksesoris komputer berbasis HTML, CSS, dan JavaScript native dengan katalog produk, keranjang, checkout, dan panel admin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
